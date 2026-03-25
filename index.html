@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sürpriz İçerik</title>
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .btn-apple {
+            background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+            border: none;
+            padding: 20px 40px;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-apple:active {
+            transform: scale(0.95);
+        }
+
+        .text {
+            margin-bottom: 20px;
+            text-align: center;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text">
+        <h2>Devam etmek için tıklayın</h2>
+        <p>İçerik Apple Music ile senkronize ediliyor...</p>
+    </div>
+
+    <a href="music://music.apple.com/tr/album/blinding-lights/1488403387?i=1488403391" class="btn-apple" id="startBtn">
+        🎵 İçeriği Başlat
+    </a>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function() {
+            // Tıklandığı an ufak bir gecikme ile başka bir yere yönlendirebilirsin
+            // Böylece hem müzik başlar hem de kullanıcı sitede kalmış gibi görünür
+            setTimeout(function() {
+                console.log("Müzik tetiklendi, Safari arka planda kalabilir.");
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
